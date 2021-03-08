@@ -81,7 +81,7 @@ qwerty.addEventListener('click', (e) => {
       //if the buttons textContent is not included in letterFound, the missed value goes up by one.
      if ( !letterFound.includes(button) ) {
        missed++
-       
+       //hides heart image is wrong word is guessed
        tries[missed-1].childNodes[0].style.display = 'none';
        
      } 
