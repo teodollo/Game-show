@@ -10,8 +10,8 @@ let missed = 0;
 const title = document.getElementsByClassName('title')[0];
 const tries = document.getElementsByClassName('tries');
 const button = document.getElementsByTagName('BUTTON');
-
-
+const images = document.getElementsByTagName('IMAGES');
+console.log(tries[0].childNodes[0]);
 startButton.addEventListener('click', (e) => {
     //when you click the start button and the textContent is "Start Game" the overlay is hidden
     if (startButton.textContent === 'Start Game') {
@@ -89,7 +89,8 @@ qwerty.addEventListener('click', (e) => {
      if ( !letterFound.includes(button) ) {
        missed++
        //hides heart image if wrong letter is guessed
-       tries[missed-1].childNodes[0].style.display = 'none';
+       //tries[missed-1].childNodes[0].style.display = 'none';
+       tries[missed-1].childNodes[0].src = "images/lostHeart.png";
        
      } 
      //after each click the programs runs the win and loss function to see if you won or lost
