@@ -5,7 +5,6 @@ const overlay = document.getElementById('overlay');
 const startButton = document.getElementsByClassName('btn__reset')[0];
 let start = document.getElementsByClassName('start');
 const startOverlay = document.getElementsByClassName('main-container');
-let images = document.getElementsByClassName('tries');
 const phrases = ['how are you', 'i like to code', 'hail javascript', 'look up', 'whats nine plus ten'];
 let missed = 0;
 const title = document.getElementsByClassName('title')[0];
@@ -51,6 +50,7 @@ addPhraseToDisplay(phraseArray)
 
 //elements with className "letter"
 const letters = document.getElementsByClassName('letter');
+const show = document.getElementsByClassName('show');
 
 //the starting amount of elements with className "letter"
 const letterLength = letters.length;
@@ -88,7 +88,7 @@ qwerty.addEventListener('click', (e) => {
       //if the buttons textContent is not included in letterFound, the missed value goes up by one.
      if ( !letterFound.includes(button) ) {
        missed++
-       //hides heart image is wrong word is guessed
+       //hides heart image if wrong letter is guessed
        tries[missed-1].childNodes[0].style.display = 'none';
        
      } 
@@ -107,6 +107,7 @@ function loss() {
     overlay.style.display = 'flex';
     title.textContent = 'YOU LOST!';
     startButton.textContent = 'Reset';
+    phrase.style.display = 'none';
     //loop trough each button and disable it
     for (let i = 0; i < button.length; i++) {
       button[i].disabled = true;
@@ -121,10 +122,12 @@ function win() {
     overlay.style.display = 'flex';
     title.textContent = 'YOU WON!';
     startButton.textContent = 'Reset';
+    phrase.style.display = 'none';
     //loop trough each button and disable it
     for (let i = 0; i < button.length; i++) {
       button[i].disabled = true;
     }
+    
   }
 }
 //phrase letters that are found to clicking different buttons
