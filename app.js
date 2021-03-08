@@ -10,12 +10,19 @@ const phrases = ['how are you', 'i like to code', 'hail javascript', 'look up', 
 let missed = 0;
 const title = document.getElementsByClassName('title')[0];
 const tries = document.getElementsByClassName('tries');
+const button = document.getElementsByTagName('BUTTON');
 
-//when you click the start button the overlay is hidden
+
 startButton.addEventListener('click', (e) => {
+    //when you click the start button and the textContent is "Start Game" the overlay is hidden
+    if (startButton.textContent === 'Start Game') {
     const Overlay = e.target.parentNode;
     Overlay.style.display = 'none';
-    
+    }
+    //if the textContent of startButton is reset, the page will be reloaded
+    if (startButton.textContent === 'Reset') {
+      window.location.reload();
+    }
 });
 //this function returns a random string from array of strings
 function getRandomPhraseAsArray(arr) {
@@ -99,6 +106,11 @@ function loss() {
     overlay.className = 'lose';
     overlay.style.display = 'flex';
     title.textContent = 'YOU LOST!';
+    startButton.textContent = 'Reset';
+    //loop trough each button and disable it
+    for (let i = 0; i < button.length; i++) {
+      button[i].disabled = true;
+    }
   }
 }
 //if the starting amount of lists with className letter, is equal to letterFound where all right guesses are stored
@@ -108,6 +120,11 @@ function win() {
     overlay.className = 'win';
     overlay.style.display = 'flex';
     title.textContent = 'YOU WON!';
+    startButton.textContent = 'Reset';
+    //loop trough each button and disable it
+    for (let i = 0; i < button.length; i++) {
+      button[i].disabled = true;
+    }
   }
 }
 
