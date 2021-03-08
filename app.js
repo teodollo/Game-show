@@ -127,5 +127,5 @@ function win() {
     }
   }
 }
-
+//phrase letters that are found to clicking different buttons
 let letterFound = '';
