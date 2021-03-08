@@ -105,7 +105,7 @@ function loss() {
   if (missed === 5) {
     overlay.className = 'lose';
     overlay.style.display = 'flex';
-    title.textContent = 'YOU LOST!';
+    title.textContent = 'YOU LOST :(';
     startButton.textContent = 'Reset';
     phrase.style.display = 'none';
     //loop trough each button and disable it
